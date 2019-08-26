@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app
+  name: my-app-web-server
   labels:
-    app: my-app
+    app: my-app-web-server
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: my-app
+      app: my-app-web-server
   template:
     metadata:
       labels:
-        app: my-app
+        app: my-app-web-server
     spec:
       containers:
-      - name: my-app
-        image: echarish/my-app
+      - name: my-app-web-server
+        image: echarish/my-app-web-server
         ports:
         - containerPort: 3000
