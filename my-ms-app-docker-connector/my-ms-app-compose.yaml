@@ -1,0 +1,13 @@
+version: "2"
+services:
+  my-app-webserver:
+    image: "echarish/my-app
+    depends_on:
+      - my-book-api"
+    environment:
+      My_Book_API_MS: loclhost:8080
+      PORT: 3000
+  my-book-api:
+    image: echarish/ms-book-api 
+    environment:
+      server.port: 8080

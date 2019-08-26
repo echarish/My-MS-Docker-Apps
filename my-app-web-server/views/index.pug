@@ -1,0 +1,65 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} , your are viewing it at #{currentTime}
+
+  p Let's Call some Micoservices
+  
+  div.col-12
+    table.table-bordered
+      tbody 
+      tr
+        td
+          h2 You can also create a book here!
+          form(method='POST' action='/book/addBook')
+                  div.form-group
+                    label(for='titile') Title :
+                    input#firstName.form-control(type='text', placeholder='Title' name='title')
+                  div.form-group
+                    label(for='author') Author :
+                    input#lastName.form-control(type='text', placeholder='Author' name='author')
+                  div.row
+                    div.form-group.col-6
+                      label(for='type') Type :
+                      input#lastName.form-control(type='text', placeholder='Type' name='type')
+                    div.form-group.col-6
+                      label(for='language') Language :
+                      input#lastName.form-control(type='text', placeholder='language' name='language')
+                  div.row
+                    div.form-group.col-6
+                      label(for='price') Price :
+                      input#lastName.form-control(type='number', placeholder='100.00' name='price')  
+                    div.form-group.col-6
+                      label(for='numOfPages') Number of Pages :
+                      input#lastName.form-control(type='number', placeholder='numOfPages' name='numOfPages')
+                  div.form-group
+                    label(for='isbn13') ISBN-13 :
+                    input#lastName.form-control(type='text', placeholder='isbn13' name='isbn13')
+                  button.btn.btn-primary(type='submit') Add Book
+      tr
+        td
+          h2 You can also fetch existing book's here!
+          form(method='Get' action='/book/getBook')
+            button.btn.btn-primary(type='submit') Get Book
+          if availableBooks
+            table.table-striped
+              thead
+                td ID
+                td Title
+                td Author
+                td Type
+                td Price
+                td Number of Pages
+                td Language
+                td ISBN  
+              each book in availableBooks
+                tr
+                  td #{book.id}
+                  td #{book.title}
+                  td #{book.author}
+                  td #{book.type}
+                  td #{book.price}
+                  td #{book.numOfPages}
+                  td #{book.language}
+                  td #{book.isbn13}

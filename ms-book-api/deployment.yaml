@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-book-api-ms
+  labels:
+    app: my-book-api-ms
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-book-api-ms
+  template:
+    metadata:
+      labels:
+        app: my-book-api-ms
+    spec:
+      containers:
+      - name: my-book-api-ms
+        image: echarish/ms-book-api
+        ports:
+        - containerPort: 3001
