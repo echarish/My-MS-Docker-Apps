@@ -14,7 +14,7 @@
     "json-pretty-html": "^1.1.6",
     "morgan": "~1.9.1",
     "node-fetch": "^2.6.0",
-    "pug": "2.0.0-beta11",
+    "pug": "3.0.1",
     "request": "^2.88.0"
   },
   "devDependencies": {
